@@ -1,46 +1,83 @@
 #include "actions.h"
 #include <stdio.h>
 
-extern GLfloat rotate_x_sphere;
-extern GLfloat rotate_y_sphere; 
+extern GLfloat rotate_x_cam;
+extern GLfloat rotate_y_cam;
+extern GLfloat rotate_z_cam;
 extern int blend;
 extern int light;
 
-GLvoid touche(unsigned char key, int x, int y) 
-{
-  switch(key){
+// Récupération des fps
+extern int fps;
+extern unsigned int updateMovement;
 
-    case ESCAPE :
-      exit(1);
+// Gestion du playmobil
+extern GLfloat play_x;
+extern GLfloat play_z;
+extern GLfloat play_rotation;
+
+extern GLfloat play_member_rotate_x;
+int rotation_direction = 1;
+
+extern GLfloat play_speed;
+
+GLvoid touche(unsigned char key, int x, int y)
+{
+  switch (key)
+  {
+  case TOUCHE_MIN_Z:
+    play_z -= 0.1;
+    if (play_member_rotate_x > 45 || play_member_rotate_x < -45)
+      rotation_direction = rotation_direction * -1;
+    play_member_rotate_x += 10 * rotation_direction;
+    break;
+
+  case TOUCHE_MIN_S:
+    play_z += 0.1;
+    if (play_member_rotate_x > 45 || play_member_rotate_x < -45)
+      rotation_direction = rotation_direction * -1;
+    play_member_rotate_x += 10 * rotation_direction;
+    break;
+
+  case TOUCHE_MIN_Q:
+    play_rotation += 10;
+    break;
+
+  case TOUCHE_MIN_D:
+    play_rotation -= 10;
+    break;
+
+  case TOUCHE_MIN_B:
+    rotate_z_cam += 10.0;
+    break;
+
+  case ESCAPE:
+    exit(1);
   }
 }
 
-GLvoid touche_speciale(int key, int x, int y) 
+GLvoid touche_speciale(int key, int x, int y)
 {
-  switch(key){
+  switch (key)
+  {
 
-    case TOUCHE_MIN_B :
-      rotate_x_sphere += 10.0;
-      break;
+  case GLUT_KEY_UP:
+    rotate_x_cam += 10.0;
+    break;
 
-    case GLUT_KEY_UP :
-      rotate_x_sphere += 10.0;
-      break;
+  case GLUT_KEY_DOWN:
+    rotate_x_cam -= 10.0;
+    break;
 
-    case GLUT_KEY_DOWN :
-      rotate_x_sphere -= 10.0;
-      break;
+  case GLUT_KEY_LEFT:
+    rotate_y_cam -= 10.0;
+    break;
 
-    case GLUT_KEY_LEFT :
-      rotate_y_sphere -= 10.0;
-      break;
+  case GLUT_KEY_RIGHT:
+    rotate_y_cam += 10.0;
+    break;
 
-    case GLUT_KEY_RIGHT :
-      rotate_y_sphere += 10.0;
-      break;
-    
-    case ESPACE :
-      break;
-
+  case ESPACE:
+    break;
   }
 }
