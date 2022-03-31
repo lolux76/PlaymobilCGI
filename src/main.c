@@ -1,4 +1,12 @@
-// gcc main.c axes.o actions.c normale.c lumiere.o switch_blend.o switch_light.o touches.h init.c VM_init.c -lm -lGL -lGLU -lglut -o Playmobil
+/*
+ * main.c
+ *  
+ * Auteur: Matéo Grimaud
+ * Email: mateo.grimaud@etud.univ-angers.fr
+ * Description:
+ * 	Ce programme génère la modélisation d'un Playmobil et de son environnement
+ */
+
 
 #include "init.h"
 #include "VM_init.h"

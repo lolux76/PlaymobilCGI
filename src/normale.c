@@ -1,4 +1,3 @@
-// gcc normale.c -c 
 #include "normale.h"
 
 // n = v0 x v1 avec V0 = s2 - s1 et v1 = s0 - s1
