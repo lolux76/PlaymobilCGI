@@ -65,6 +65,10 @@ GLvoid touche(unsigned char key, int x, int y)
     rotate_z_cam += 10.0;
     break;
 
+  case TOUCHE_MIN_R:
+    rotate_z_cam -= 10.0;
+    break;
+
   case TOUCHE_MIN_L:
     if (ambienteLight == 1.0f)
     {
