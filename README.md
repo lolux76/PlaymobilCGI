@@ -1,5 +1,9 @@
 # Contrôle continu de Synthèse d'Images
 
+Matéo Grimaud  
+mateo.grimaud@etud.univ-angers.fr  
+L3 informatique  
+
 ## Compilation
 
 Pour compiler le programme:
@@ -59,15 +63,22 @@ Le playmobil se contrôle de la manière suivante :
 Le programme contient:
  - Une caméra qui peut se déplacer selon 3 axes.
  - Un playmobil qui se déplace en avant et en arrière et qui peut tourner sur lui même.
+ - Un playmobil qui tourne sur lui même et dont les mouvements de jambes et bras sont synchronisés sur celui du joueur.
  - Une réplique du playmobil qui avance et recule seule.
  - 4 murs et un sol, tous les 5 texturés.
+ - Une animation 2D
 
 ### Le playmobil
 
 Le playmobil est conçu de sorte à ce que les bras et jambes se balancent lors du mouvement.
+La lumière du corps (ventre) du playmobil est en condition de matériaux plastique.
 
 ### La scène
 
 La scène comporte un sol, entièrement texturé. Ce sol est un pavé droit et comporte donc toutes ses faces.
 Les murs ne sont représenté que sous une face, de telle sorte que la caméra et la lumière ne soient jamais obstruées.
 Les murs représentent les limites physique de la scène. Le playmobil ne peut pas les traverser.
+
+Les mouvements des playmobils "autonomes" et le déclenchement de l'animation se fond avec un petit délai de quelques secondes (variable selon les temps d'exécutions et les FPS).
+
+Les mouvements des playmobils "autonomes" et l'animation sont à vitesse constante, et ne varient pas selon les FPS.
